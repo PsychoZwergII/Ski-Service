@@ -33,11 +33,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("mySidebar").style.width = "0";
   };
 
-  document.getElementById("serviceForm").onsubmit = function (event) {
+  /* document.getElementById("serviceForm").onsubmit = function (event) {
     event.preventDefault();
     if (validateForm()) {
       const formData = new FormData(this);
-      fetch("https://example.com/api/submit_service", {
+      fetch("https://localhost:5000/api/regristation", {
+        //URL anpassen
         method: "POST",
         body: JSON.stringify(Object.fromEntries(formData)),
         headers: {
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
           alert("Es gab ein Problem mit der Serviceanmeldung.");
         });
     }
-  };
+  };*/
 });
 
 // Get the button
@@ -118,8 +119,8 @@ const formData = new FormData(this);
 const currentDate = new Date().toISOString(); // Aktuelles Datum im ISO-Format
 const pickupDate = document.getElementById("pickup-date").textContent; // Abholdatum aus dem Display
 
-formData.append("create_date", currentDate);
-formData.append("pickup_date", pickupDate);
+formData.append("create_date", currentDate); //test
+formData.append("pickup_date", pickupDate); //test
 
 const addEntry = {
   id: Math.max(...registration_data.map((o) => o.id)) + 1,
@@ -132,7 +133,7 @@ const addEntry = {
   create_date: data.create_date, // Vom Frontend übergeben
 };
 
-document.getElementById("serviceForm").onsubmit = function (event) {
+/*document.getElementById("serviceForm").onsubmit = function (event) {
   event.preventDefault(); // Verhindert das Standard-Formular-Submit
 
   const formData = new FormData(this);
@@ -151,7 +152,7 @@ document.getElementById("serviceForm").onsubmit = function (event) {
       console.error("Fehler:", error);
       alert("Es gab ein Problem mit der Serviceanmeldung.");
     });
-};
+};*/
 
 const express = require("express");
 const router = express.Router();
