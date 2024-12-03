@@ -123,7 +123,7 @@ formData.append("create_date", currentDate); //test
 formData.append("pickup_date", pickupDate); //test
 */
 
-const addEntry = {
+/*const addEntry = {
   //id: Math.max(...registration_data.map((o) => o.id)) + 1,
   id: 375,
   name: data.name,
@@ -133,6 +133,18 @@ const addEntry = {
   service: data.service,
   pickup_date: data.pickup_date, // Vom Frontend übergeben
   create_date: data.create_date, // Vom Frontend übergeben
+};*/
+
+const addEntry = {
+  //id: Math.max(...registration_data.map((o) => o.id)) + 1,
+  id: 375,
+  name: "Lias",
+  email: "fhjdskah@jvh.com",
+  phone: "099 536 63 36",
+  priority: "standard",
+  service: "snowboard-kleiner-service",
+  pickup_date: "", // Vom Frontend übergeben
+  create_date: "", // Vom Frontend übergeben
 };
 
 /*document.getElementById("serviceForm").onsubmit = function (event) {
