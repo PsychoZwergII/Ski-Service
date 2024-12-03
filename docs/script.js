@@ -113,3 +113,62 @@ document.addEventListener("DOMContentLoaded", function () {
     )}`;
   });
 });
+
+const formData = new FormData(this);
+const currentDate = new Date().toISOString(); // Aktuelles Datum im ISO-Format
+const pickupDate = document.getElementById("pickup-date").textContent; // Abholdatum aus dem Display
+
+formData.append("create_date", currentDate);
+formData.append("pickup_date", pickupDate);
+
+const addEntry = {
+  id: Math.max(...registration_data.map((o) => o.id)) + 1,
+  name: data.name,
+  email: data.email,
+  phone: data.phone,
+  priority: data.priority,
+  service: data.service,
+  pickup_date: data.pickup_date, // Vom Frontend übergeben
+  create_date: data.create_date, // Vom Frontend übergeben
+};
+
+document.getElementById("serviceForm").onsubmit = function (event) {
+  event.preventDefault(); // Verhindert das Standard-Formular-Submit
+
+  const formData = new FormData(this);
+  fetch("http://localhost:5000/api/registration", {
+    method: "POST",
+    body: JSON.stringify(Object.fromEntries(formData)),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      alert("Serviceanmeldung erfolgreich!");
+    })
+    .catch((error) => {
+      console.error("Fehler:", error);
+      alert("Es gab ein Problem mit der Serviceanmeldung.");
+    });
+};
+
+const express = require("express");
+const router = express.Router();
+const fs = require("fs");
+
+// Dummy-Datenbank oder Datei zum Speichern der Registrierungen
+let registrations = [];
+
+// POST /registration
+router.post("/registration", (req, res) => {
+  const newRegistration = req.body;
+  registrations.push(newRegistration); // Fügen Sie die neue Registrierung hinzu
+
+  // Optional: Speichern Sie die Registrierungen in einer Datei oder Datenbank
+  fs.writeFileSync("registrations.json", JSON.stringify(registrations));
+
+  res.status(200).json(newRegistration);
+});
+
+module.exports = router;
