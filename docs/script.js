@@ -172,3 +172,38 @@ router.post("/registration", (req, res) => {
 });
 
 module.exports = router;
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("serviceForm");
+
+  form.onsubmit = function (event) {
+    event.preventDefault(); // Verhindert den Standard-Formular-Submit
+
+    if (validateForm()) {
+      const formData = new FormData(form);
+      const currentDate = new Date().toISOString(); // Aktuelles Datum
+      const pickupDate = document.getElementById("pickup-date").textContent;
+
+      // Zusätzliche Daten in das FormData-Objekt einfügen
+      formData.append("create_date", currentDate);
+      formData.append("pickup_date", pickupDate);
+
+      // Senden an den Server
+      fetch("http://localhost:5000/api/registration", {
+        method: "POST",
+        body: JSON.stringify(Object.fromEntries(formData)),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          alert("Serviceanmeldung erfolgreich!");
+        })
+        .catch((error) => {
+          console.error("Fehler:", error);
+          alert("Es gab ein Problem mit der Serviceanmeldung.");
+        });
+    }
+  };
+});
