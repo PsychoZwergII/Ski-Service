@@ -1,10 +1,11 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vielen Dank</title>
+    <title>Danke - Jetstream-Service</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -14,30 +15,66 @@
       rel="stylesheet"
     />
   </head>
-  <header>
-    <header>
-        <a href="index.html">
-          <img
-            id="logo"
-            src="logo.png"
-            alt="Logo"
-            width="200px"
-            style="position: absolute; top: 20px; right: 10px"
-          />
-        </a>
-  </header>
   <body>
+    <header>
+      <a href="index.html">
+        <img
+          id="logo"
+          src="logo.png"
+          alt="Logo"
+          width="200px"
+          style="position: absolute; top: 20px; right: 10px"
+        />
+      </a>
+      <button class="hamburger" onclick="openSidebar()">☰</button>
+      <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()"
+          >×</a
+        >
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="kontakt.html"><i class="fas fa-users"></i> Über Uns</a>
+        <a href="dienstleistungen.html"
+          ><i class="fas fa-concierge-bell"></i> Dienstleistungen</a
+        >
+        <a href="anmeldung.html"><i class="fas fa-user-plus"></i> Anmelden</a>
+      </div>
+    </header>
+    <header>
+      <h1 id="title">Vielen Dank</h1>
+    </header>
+    <button
+      id="scrollToTop"
+      class="d-flex align-items-center justify-content-center"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
     <main>
-      <section>
-        <p>
+      <section id="danke">
+        <h3>
           Vielen Dank für Ihre Anmeldung. Wir geben Ihnen Bescheid, falls
           Schwierigkeiten auftauchen.
-        </p>
-        <p>
+        </h3>
+        <h3>
           Falls Sie Fragen haben, können Sie uns jederzeit per E-Mail oder
           Telefon kontaktieren. Wir freuen uns darauf, Ihnen zu helfen und
-          wünschen Ihnen viel Spaß bei unserem Service.
+          wünschen Ihnen viel Spass bei unserem Service.
+        </h3>
+      </section>
+      <section id="contact">
+        <h2>Kontakt</h2>
+        <p>Für Fragen oder Anregungen können Sie uns jederzeit kontaktieren.</p>
+        <p>Jetstream-Service GmbH</p>
+        <p>Adresse: Skiweg 45, 8000 Zürich, Schweiz</p>
+        <p>Telefon: +41 (0)44 123 45 67</p>
+        <p>
+          E-Mail:
+          <a href="mailto:info@jetstream-service.ch"
+            >info@jetstream-service.de</a
+          >
         </p>
+        <a href="datenschutz.html" id="datenschutz">Datenschutz</a>
+        <a href="impressum.html" id="impressum">Impressum</a>
+        <a href="agb.html" id="agb">AGB</a>
       </section>
     </main>
     <script src="script.js"></script>
