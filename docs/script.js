@@ -114,7 +114,6 @@ document.addEventListener("DOMContentLoaded", function () {
     )}`;
   });
 });
-
 /*
 const formData = new FormData(this);
 const currentDate = new Date().toISOString(); // Aktuelles Datum im ISO-Format
@@ -125,7 +124,8 @@ formData.append("pickup_date", pickupDate); //test
 */
 
 const addEntry = {
-  id: Math.max(...registration_data.map((o) => o.id)) + 1,
+  //id: Math.max(...registration_data.map((o) => o.id)) + 1,
+  id: 375,
   name: data.name,
   email: data.email,
   phone: data.phone,
