@@ -115,12 +115,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+/*
 const formData = new FormData(this);
 const currentDate = new Date().toISOString(); // Aktuelles Datum im ISO-Format
 const pickupDate = document.getElementById("pickup-date").textContent; // Abholdatum aus dem Display
 
 formData.append("create_date", currentDate); //test
 formData.append("pickup_date", pickupDate); //test
+*/
 
 const addEntry = {
   id: Math.max(...registration_data.map((o) => o.id)) + 1,
