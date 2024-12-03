@@ -168,12 +168,12 @@ const addEntry = {
     });
 };*/
 
-const express = require("express");
+/*const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 
 // Dummy-Datenbank oder Datei zum Speichern der Registrierungen
-let registrations = [];
+let registrations = [];*/
 
 // POST /registration
 router.post("/registration", (req, res) => {
