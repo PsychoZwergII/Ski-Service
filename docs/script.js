@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then((response) => response.json())
         .then((data) => {
-          alert("Serviceanmeldung erfolgreich!");
+          window.location.href = "ende.html";
         })
         .catch((error) => {
           console.error("Fehler:", error);
