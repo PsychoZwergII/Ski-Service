@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wilkommen bei Jetstream-Service</title>
+    <title>Kontakt-Jetstream-Service</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -42,7 +42,7 @@
       </div>
     </header>
     <header>
-      <h1 id="title">Wilkommen bei Jetstream-Service</h1>
+      <h1 id="title">Kontakt</h1>
     </header>
     <main>
       <button
@@ -51,40 +51,18 @@
       >
         <i class="bi bi-arrow-up"></i>
       </button>
-      <section id="landing-page">
-        <h2>SKI, SNOWBOARD UND LANGLAUF SERVICE</h2>
-
-        <h3>
-          Ski und Snowboard brauchen ab und zu einen Boxenstopp. <br />
-          In all unseren Stores findest du dafür professionell eingerichtete
-          Werkstätten, <br />
-          in denen unsere Spezialisten Service- und Reparaturaufträge <br />
-          schnell und zuverlässig erledigen.
-        </h3>
-        <video controls>
-          <source
-            src="utomp3.com - One run in Bräcke Åre SkiStar Snowpark_360P.mp4"
-            type="video/mp4"
-          />
-          Ihr Browser unterstützt das Video-Tag nicht.
-        </video>
-      </section>
-      <section id="contact">
-        <h2>Kontakt</h2>
-        <p>Jetstream-Service GmbH</p>
-        <p>Adresse: Skiweg 45, 8000 Zürich, Schweiz</p>
-        <p>Telefon: +41 (0)44 123 45 67</p>
-        <p>
-          E-Mail:
-          <a href="mailto:info@jetstream-service.ch"
-            >info@jetstream-service.ch</a
-          >
-        </p>
-        <a href="datenschutz.html" id="datenschutz">Datenschutz</a>
-        <a href="impressum.html" id="impressum">Impressum</a>
-        <a href="agb.html" id="agb">AGB</a>
-      </section>
-    </main>
-    <script src="script.js"></script>
-  </body>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="message">Nachricht:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+        
+        <input type="submit" value="Absenden">
+    </form>
+</body>
+<script src="script.js"></script>
 </html>
