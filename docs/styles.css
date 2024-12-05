@@ -307,15 +307,13 @@ form button:hover {
 }
 
 #anmeldebutton {
-  grid-column: span 2;
-  justify-self: center;
-  padding: 0.5em 1em;
   background-color: #1e3d59;
   color: white;
   border: none;
+  padding: 0.75em 1.5em;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.875em;
+  font-size: 1em;
 }
 
 #anmeldebutton:hover {
