@@ -119,6 +119,12 @@ document.addEventListener("DOMContentLoaded", function () {
     pickupDateDisplay.textContent = `Abholdatum: ${pickupDate.toLocaleDateString(
       "de-DE"
     )}`;
+
+    document
+      .getElementById("anmeldebutton")
+      .addEventListener("click", function () {
+        window.location.href = "anmeldung.html";
+      });
   });
 });
 
