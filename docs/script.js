@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   function validateForm() {
     const name = document.getElementById("name").value.trim();
-    const namePattern = /^[a-zA-ZäöüÄÖÜß]+(?:\s[a-zA-ZäöüÄÖÜß]+)+$/;
+    const namePattern = /^[a-zA-ZäöüÄÖÜßéàè]+(?:\s[a-zA-ZäöüÄÖÜßéàè]+)+$/;
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
