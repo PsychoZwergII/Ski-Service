@@ -116,14 +116,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const pickupDate = new Date(currentDate);
     pickupDate.setDate(currentDate.getDate() + totalDays);
 
-    // Aktualisieren Sie das Abholdatum
-    document.getElementById(
-      "pickup-date"
-    ).textContent = `${pickupDate.toLocaleDateString("de-DE")}`;
-
-    document
-      .getElementById("priority")
-      .insertAdjacentElement("afterend", pickupDateInput);
+    pickupDateDisplay.textContent = `Abholdatum: ${pickupDate.toLocaleDateString(
+      "de-DE"
+    )}`;
 
     document
       .getElementById("anmeldebutton")
