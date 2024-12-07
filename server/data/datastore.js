@@ -26,7 +26,7 @@ const saveRegistrationData = (data) => {
       phone: data.phone,
       priority: data.priority,
       service: data.service,
-      pickup_date: new Date(data.pickup_date).toISOString(), // Nur den Zeitstempel speichern
+      pickup_date: data.pickup_date,
       create_date: data.create_date,
       // create_date: new Date().toJSON()
     };

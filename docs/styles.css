@@ -319,3 +319,15 @@ form button:hover {
 #anmeldebutton:hover {
   background-color: #16324f;
 }
+
+label {
+  display: block; /* Stellt sicher, dass das Label immer in einer neuen Zeile ist */
+  margin-bottom: 0.5em; /* Abstand zwischen Label und Eingabefeld */
+}
+
+input[type="text"] {
+  width: 100%; /* Damit das Eingabefeld die volle Breite einnimmt */
+  padding: 0.5em; /* Innenabstand für das Eingabefeld */
+  border: 1px solid #ccc; /* Rahmen für das Eingabefeld */
+  border-radius: 4px; /* Abgerundete Ecken */
+}
