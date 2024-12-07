@@ -89,9 +89,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Logik für das Abholdatum
   const prioritySelect = document.getElementById("priority");
-  const pickupDateDisplay = document.createElement("p");
   pickupDateDisplay.id = "pickup-date";
   document.getElementById("service-form").appendChild(pickupDateDisplay);
+
+  const pickupDateDisplay = document.getElementById("pickup-date-display"); // Neues Element
 
   prioritySelect.addEventListener("change", function () {
     const priority = prioritySelect.value;
@@ -116,9 +117,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const pickupDate = new Date(currentDate);
     pickupDate.setDate(currentDate.getDate() + totalDays);
 
+    // Zeige das Pickup-Datum im neuen Element an
     pickupDateDisplay.textContent = `Abholdatum: ${pickupDate.toLocaleDateString(
       "de-DE"
     )}`;
+
+    // Speichern Sie nur den Zeitstempel für den Server
+    document.getElementById("pickup-date").textContent =
+      pickupDate.toISOString(); // Zeitstempel für den Server
 
     document
       .getElementById("anmeldebutton")
