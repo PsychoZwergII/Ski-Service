@@ -119,7 +119,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Aktualisieren Sie das Abholdatum
     document.getElementById(
       "pickup-date"
-    ).value = `${pickupDate.toLocaleDateString("de-DE")}`;
+    ).textContent = `${pickupDate.toLocaleDateString("de-DE")}`;
+
     document
       .getElementById("priority")
       .insertAdjacentElement("afterend", pickupDateInput);
