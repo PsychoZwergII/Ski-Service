@@ -57,54 +57,17 @@
               <form>
              <!-- Vorname -->
               <div class="mb-3">
-                  <label for="firstName" class="form-label">Vorname</label>
-                  <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      class="form-control"
-                      placeholder="Max"
-                      required
-                  />
-              </div>
-             
-              <!-- Nachname -->
-              <div class="mb-3">
-                  <label for="lastName" class="form-label">Nachname</label>
-                  <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      class="form-control"
-                      placeholder="Mustermann"
-                      required
-                  />
-              </div>
-
-              <!-- E-Mail -->
-              <div class="mb-3">
-                  <label for="email" class="form-label">E-Mail</label>
-                  <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      class="form-control"
-                      placeholder="max.mustermann@example.com"
-                      required
-                  />
-              </div>
-
-              <!-- Telefonnummer -->
-              <div class="mb-3">
-                  <label for="phone" class="form-label">Telefon (optional)</label>
-                  <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      class="form-control"
-                      placeholder="0123 456789"
-                  />
-              </div>
+                <label for="vorname">Vorname:</label>
+                <input type="text" id="vorname" name="vorname" required style="width: 200%;" />
+                
+                <label for="nachname">Nachname:</label>
+                <input type="text" id="nachname" name="nachname" required style="width: 200%;" />
+      
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required style="width: 200%;"/>
+      
+                <label for="phone">Telefon:</label>
+                <input type="tel" id="phone" name="phone" required style="width: 200%;"/>
 
               <!-- Nachricht -->
               <div class="mb-3">
@@ -116,13 +79,16 @@
                       rows="5"
                       placeholder="Ihre Nachricht..."
                       required
+                      style="width: 200%;"
                   ></textarea>
               </div>
 <br>
 <br>
               <!-- Absenden -->
-              <div class="text-center">
-                  <button type="submit" class="btn btn-primary" style="align-self: center;">Absenden</button>
+              <div style="text-align: right; margin-top: 20px">
+                  <button type="submit" class="btn btn-primary"  style="background-color: #1e3d59; border-color: #1e3d59;" text-align="right"
+                  onmouseover="this.style.backgroundColor='#16324f'; this.style.borderColor='#16324f';"
+                  onmouseout="this.style.backgroundColor='#1e3d59'; this.style.borderColor='#1e3d59';"">Absenden</button>
               </div>
           </fieldset>
       </form>

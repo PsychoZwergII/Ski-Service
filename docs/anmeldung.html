@@ -53,26 +53,26 @@
       <section id="service-form">
         <form id="serviceForm">
           <label for="name">Vor-Nachname:</label>
-          <input type="text" id="name" name="name" required />
+          <input type="text" id="name" name="name" required style="width: 100%;" />
 
           <label for="email">E-Mail:</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" required style="width: 100%;"/>
 
           <label for="phone">Telefon:</label>
-          <input type="tel" id="phone" name="phone" required />
+          <input type="tel" id="phone" name="phone" required style="width: 100%;"/>
 
           <label for="priority">Priorität:</label>
-          <select id="priority" name="priority" required>
-            <option value="tief">Tief</option>
-            <option value="standard">Standard</option>
-            <option value="express">Express</option>
+          <select id="priority" name="priority" required style="width: 101.6%;">
+            <option value="tief">Tief - CHF 10.00</option>
+            <option value="standard">Standard - CHF 20.00</option>
+            <option value="express">Express - CHF 30.00</option>
           </select>
 
           <label for="pickup-date">Abholdatum:</label>
-          <input type="text" id="pickup-date" name="pickup-date" readonly />
+          <input type="text" id="pickup-date" name="pickup-date" readonly style="width: 100%;" />
 
           <label for="service">Dienstleistung:</label>
-          <select id="service" name="service" required>
+          <select id="service" name="service" required style="width: 101.6%;">
             <option value="kleiner-service">
               Ski Kleiner Service - CHF 39.00
             </option>
@@ -111,6 +111,10 @@
             </option>
             <option value="heisswachsen">Heisswachsen - CHF 30.00</option>
           </select>
+
+          <label for="preis">Gesamtpreis:</label>
+          <input type="text" id="preis" name="preis" readonly style="width: 100%;"/>
+
 
           <button type="submit">Anmelden</button>
         </form>

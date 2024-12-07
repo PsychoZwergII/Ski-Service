@@ -126,3 +126,30 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("pickup-date").value = formattedDate;
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const priorityElement = document.getElementById("priority");
+  const serviceElement = document.getElementById("service");
+  const priceElement = document.getElementById("preis");
+
+  function calculateTotalPrice() {
+    const priorityPrice = parseFloat(
+      priorityElement.options[priorityElement.selectedIndex].text.split(
+        " - CHF "
+      )[1]
+    );
+    const servicePrice = parseFloat(
+      serviceElement.options[serviceElement.selectedIndex].text.split(
+        " - CHF "
+      )[1]
+    );
+    const totalPrice = priorityPrice + servicePrice;
+    priceElement.value = `CHF ${totalPrice.toFixed(2)}`;
+  }
+
+  priorityElement.addEventListener("change", calculateTotalPrice);
+  serviceElement.addEventListener("change", calculateTotalPrice);
+
+  // Initial calculation
+  calculateTotalPrice();
+});
