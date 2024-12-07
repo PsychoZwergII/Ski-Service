@@ -1,10 +1,3 @@
-// Disable browser cache
-fetch("/path/to/resource", {
-  headers: {
-    "Cache-Control": "no-cache",
-  },
-});
-
 document.addEventListener("DOMContentLoaded", function () {
   function validateForm() {
     const name = document.getElementById("name").value.trim();
@@ -69,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (validateForm()) {
       const formData = new FormData(form);
       const currentDate = new Date().toISOString(); // Aktuelles Datum
-      const pickupDate = document.getElementById("pickup-date").textContent;
+      const pickupDate = document.getElementById("pickup-date").value;
 
       // Zusätzliche Daten in das FormData-Objekt einfügen
       formData.append("create_date", currentDate);
@@ -99,9 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Logik für das Abholdatum
   const prioritySelect = document.getElementById("priority");
-  const pickupDateDisplay = document.createElement("p");
-  pickupDateDisplay.id = "pickup-date";
-  document.getElementById("service-form").appendChild(pickupDateDisplay);
 
   prioritySelect.addEventListener("change", function () {
     const priority = prioritySelect.value;
@@ -126,24 +116,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const pickupDate = new Date(currentDate);
     pickupDate.setDate(currentDate.getDate() + totalDays);
 
-    pickupDateDisplay.textContent = `Abholdatum: ${pickupDate.toLocaleDateString(
-      "de-DE"
-    )}`;
-    const pickupDateInput = document.getElementById("pickup-date");
     const formattedDate = `${pickupDate
       .getDate()
       .toString()
       .padStart(2, "0")}.${(pickupDate.getMonth() + 1)
       .toString()
       .padStart(2, "0")}.${pickupDate.getFullYear().toString().slice(-2)}`;
-    pickupDateInput.value = formattedDate;
 
-    document
-      .getElementById("anmeldebutton")
-      .addEventListener("click", function () {
-        window.location.href = "anmeldung.html";
-      });
+    document.getElementById("pickup-date").value = formattedDate;
   });
 });
-
-//-----------------------------------------------------------------------------------------------------
