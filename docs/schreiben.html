@@ -53,11 +53,9 @@
         <i class="bi bi-arrow-up"></i>
       </button>
       <h1 class="text-center mb-4"></h1>
-      <form id="contactForm" class="p-4 rounded shadow" onsubmit="return validateForm()">
-          <fieldset>
-              <legend class="text-center fw-bold mb-4"></legend>
-             
-              <!-- Vorname -->
+      <section>
+              <form>
+             <!-- Vorname -->
               <div class="mb-3">
                   <label for="firstName" class="form-label">Vorname</label>
                   <input
@@ -120,13 +118,27 @@
                       required
                   ></textarea>
               </div>
-
+<br>
+<br>
               <!-- Absenden -->
               <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Absenden</button>
+                  <button type="submit" class="btn btn-primary" style="align-self: center;">Absenden</button>
               </div>
           </fieldset>
       </form>
+      </section>
+      <section id="contact">
+        <h2>Kontakt</h2>
+        <p>Jetstream-Service GmbH</p>
+        <p>Adresse: Skiweg 45, 8000 Zürich, Schweiz</p>
+        <p>Telefon: +41 (0)44 123 45 67</p>
+        <p>
+          E-Mail:
+          <a href="mailto:info@jetstream-service.ch"
+            >info@jetstream-service.ch</a
+          >
+        </p>
+      </section>
 </body>
 <script src="script.js"></script>
 </html>
