@@ -116,9 +116,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const pickupDate = new Date(currentDate);
     pickupDate.setDate(currentDate.getDate() + totalDays);
 
-    pickupDateDisplay.textContent = `Abholdatum: ${pickupDate.toLocaleDateString(
+    /*pickupDateDisplay.textContent = `Abholdatum: ${pickupDate.toLocaleDateString(
       "de-DE"
-    )}`;
+    )}`;*/
+    const pickupDateInput = document.getElementById("pickup-date");
+    const formattedDate = `${pickupDate
+      .getDate()
+      .toString()
+      .padStart(2, "0")}.${(pickupDate.getMonth() + 1)
+      .toString()
+      .padStart(2, "0")}.${pickupDate.getFullYear().toString().slice(-2)}`;
+    pickupDateInput.value = formattedDate;
 
     document
       .getElementById("anmeldebutton")
