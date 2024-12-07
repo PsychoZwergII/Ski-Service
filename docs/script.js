@@ -119,15 +119,14 @@ document.addEventListener("DOMContentLoaded", function () {
     /*pickupDateDisplay.textContent = `Abholdatum: ${pickupDate.toLocaleDateString(
       "de-DE"
     )}`;*/
-
-    const pickupDateDisplay = document.getElementById("pickup-date");
+    const pickupDateInput = document.getElementById("pickup-date");
     const formattedDate = `${pickupDate
       .getDate()
       .toString()
       .padStart(2, "0")}.${(pickupDate.getMonth() + 1)
       .toString()
       .padStart(2, "0")}.${pickupDate.getFullYear().toString().slice(-2)}`;
-    pickupDateDisplay.textContent = formattedDate;
+    pickupDateInput.value = formattedDate;
 
     document
       .getElementById("anmeldebutton")
