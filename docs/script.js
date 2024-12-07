@@ -1,3 +1,10 @@
+// Disable browser cache
+fetch("/path/to/resource", {
+  headers: {
+    "Cache-Control": "no-cache",
+  },
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   function validateForm() {
     const name = document.getElementById("name").value.trim();
