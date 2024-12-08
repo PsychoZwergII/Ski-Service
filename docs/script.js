@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function validateForm() {
     const name = document.getElementById("name").value.trim();
-    const namePattern = /^[a-zA-ZäöüÄÖÜßéàèÉÀÈ]+(?:\s[a-zA-ZäöüÄÖÜßéàè]+)+$/;
+    const namePattern = /^[a-zA-ZäöüÄÖÜßéàèÉÀÈ]+(?:\s[a-zA-ZäöüÄÖÜßéàèÉÀÈ]+)+$/;
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
