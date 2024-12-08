@@ -215,7 +215,7 @@ document
     });
 
     // Insert invoice data into the PDF
-    doc.text("Rechnung", 20, 20);
+    doc.text("Rechnung Jetstream-Service", 20, 20);
     doc.text(`Name: ${name}`, 20, 30);
     doc.text(`E-Mail: ${email}`, 20, 40);
     doc.text(`Phone: ${phone}`, 20, 50);
