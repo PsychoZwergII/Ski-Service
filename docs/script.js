@@ -1,3 +1,14 @@
+if ("serviceWorker" in navigator) {
+  caches.keys().then(function (names) {
+    for (let name of names) caches.delete(name);
+  });
+  navigator.serviceWorker.getRegistrations().then(function (registrations) {
+    for (let registration of registrations) {
+      registration.unregister();
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   function showErrorNotification(message) {
     const notificationElement = document.getElementById("notification");
