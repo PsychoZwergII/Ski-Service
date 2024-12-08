@@ -170,6 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initial pickup date calculation
   updatePickupDate();
+  prioritySelect.value = "tief"; // Set initial value to "tief"
 });
 
 document.addEventListener("DOMContentLoaded", function () {
