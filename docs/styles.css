@@ -28,16 +28,13 @@
     grid-column: span 1;
   }
 
-  .card-deck {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 1em;
+  .card {
+    display: block; /* Stapelt Karten-Inhalt vertikal */
+    text-align: center;
   }
-
   .card img {
     width: 100%;
     height: auto;
-    order: -1; /* Move image above text */
   }
 }
 
@@ -69,12 +66,10 @@
     grid-column: span 2;
   }
 
-  .card-deck {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1em;
+  .card {
+    display: block; /* Stapelt Karten-Inhalt vertikal */
+    text-align: center;
   }
-
   .card img {
     width: 100%;
     height: auto;
@@ -107,17 +102,6 @@
   form select,
   form button {
     grid-column: span 2;
-  }
-
-  .card-deck {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1em;
-  }
-
-  .card img {
-    width: 100%;
-    height: auto;
   }
 }
 
@@ -351,4 +335,117 @@ input[type="text"] {
   padding: 0.5em; /* Innenabstand für das Eingabefeld */
   border: 1px solid #ccc; /* Rahmen für das Eingabefeld */
   border-radius: 4px; /* Abgerundete Ecken */
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Karten umbrechen, wenn kein Platz vorhanden ist */
+  gap: 1rem; /* Abstand zwischen den Karten */
+  justify-content: center; /* Zentriert die Karten */
+}
+.card-deck-container {
+  display: flex;
+  flex-wrap: wrap; /* Karten umbrechen, wenn Platz nicht reicht */
+  gap: 1rem; /* Abstand zwischen den Karten */
+  justify-content: center; /* Zentriere die Karten horizontal */
+  margin-top: 20px;
+}
+
+/* Einzelne Karte */
+.card {
+  flex: 0 1 calc(33.333% - 1rem); /* Drei Karten pro Zeile */
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Bild in der Karte */
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Kartenkörper */
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Buttons */
+.btn-custom {
+  background-color: #1e3d59;
+  border-color: #1e3d59;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.btn-custom:hover {
+  background-color: #16324f;
+  border-color: #16324f;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Zuschneiden der Bilder */
+}
+
+.card-text {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+.card img {
+  width: 100%; /* Bild passt sich der Breite der Karte an */
+  height: 200px; /* Standardhöhe */
+  object-fit: cover; /* Bild wird zugeschnitten, um die Höhe einzuhalten */
+  border-radius: 0.5rem 0.5rem 0 0; /* Optional: Ecken abrunden */
+}
+
+/* Media Queries für unterschiedliche Gerätetypen */
+@media (max-width: 1200px) {
+  .card img {
+    height: 180px; /* Kleinere Höhe für kleinere Bildschirme */
+  }
+}
+
+@media (max-width: 992px) {
+  .card img {
+    height: 160px; /* Für Tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .card img {
+    height: 140px; /* Für kleinere Geräte wie Smartphones */
+  }
+}
+
+@media (max-width: 576px) {
+  .card img {
+    height: 120px; /* Für sehr kleine Bildschirme */
+  }
 }
