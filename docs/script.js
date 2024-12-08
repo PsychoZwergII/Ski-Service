@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const formData = new FormData(form);
       const currentDate = new Date().toISOString(); // Aktuelles Datum
       const pickupDate = document.getElementById("pickup-date").value;
-
       // Zusätzliche Daten in das FormData-Objekt einfügen
       formData.append("create_date", currentDate);
       formData.append("pickup_date", pickupDate);
@@ -81,7 +80,27 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then((response) => response.json())
         .then((data) => {
-          window.location.href = "ende.html";
+          // Hier nehmen wir an, dass die Daten im 'data' Objekt zurückgegeben werden
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const phone = document.getElementById("phone").value;
+          const service = document.getElementById("service").value;
+          const priority = document.getElementById("priority").value;
+          const pickupDate = document.getElementById("pickup-date").value;
+          const price = document.getElementById("preis").value;
+
+          // Redirect to the 'ende.html' page with URL parameters
+          window.location.href = `ende.html?name=${encodeURIComponent(
+            name
+          )}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(
+            phone
+          )}&service=${encodeURIComponent(
+            service
+          )}&priority=${encodeURIComponent(
+            priority
+          )}&pickup-date=${encodeURIComponent(
+            pickupDate
+          )}&preis=${encodeURIComponent(price)}`;
         })
         .catch((error) => {
           console.error("Fehler:", error);
@@ -145,6 +164,9 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     const totalPrice = priorityPrice + servicePrice;
     priceElement.value = `CHF ${totalPrice.toFixed(2)}`;
+
+    console.log("priorityPrice:", priorityPrice);
+    console.log("servicePrice:", servicePrice);
   }
 
   priorityElement.addEventListener("change", calculateTotalPrice);
@@ -153,3 +175,55 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initial calculation
   calculateTotalPrice();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const price = urlParams.get("preis");
+  console.log("Preis aus der URL:", price); // Überprüfen Sie den Preis hier
+
+  // Display the price
+  document.getElementById("priceDisplay").innerText = `Total Price: ${price}`;
+  if (price) {
+    document.getElementById("preis").value = price;
+  }
+});
+
+document
+  .getElementById("downloadInvoice")
+  .addEventListener("click", function () {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Read URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name");
+    const email = urlParams.get("email");
+    const phone = urlParams.get("phone");
+    const service = urlParams.get("service");
+    const priority = urlParams.get("priority");
+    const pickupDate = urlParams.get("pickup-date");
+    const price = urlParams.get("preis");
+
+    console.log("Daten für PDF:", {
+      name,
+      email,
+      phone,
+      service,
+      priority,
+      pickupDate,
+      price,
+    });
+
+    // Insert invoice data into the PDF
+    doc.text("Rechnung", 20, 20);
+    doc.text(`Name: ${name}`, 20, 30);
+    doc.text(`E-Mail: ${email}`, 20, 40);
+    doc.text(`Phone: ${phone}`, 20, 50);
+    doc.text(`Service: ${service}`, 20, 60);
+    doc.text(`Priority: ${priority}`, 20, 70);
+    doc.text(`Pickup Date: ${pickupDate}`, 20, 80);
+    doc.text(`Total Price: ${price}`, 20, 90);
+
+    // Download PDF
+    doc.save("Rechnung.pdf");
+  });

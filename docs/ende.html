@@ -49,35 +49,22 @@
     >
       <i class="bi bi-arrow-up"></i>
     </button>
-    <main>
-      <section id="danke">
-        <h3>
-          Vielen Dank für Ihre Anmeldung. Wir geben Ihnen Bescheid, falls
-          Schwierigkeiten auftauchen.
-        </h3>
-        <h3>
-          Falls Sie Fragen haben, können Sie uns jederzeit per E-Mail oder
-          Telefon kontaktieren. Wir freuen uns darauf, Ihnen zu helfen und
-          wünschen Ihnen viel Spass bei unserem Service.
-        </h3>
-      </section>
-      <section id="contact">
-        <h2>Kontakt</h2>
-        <p>Für Fragen oder Anregungen können Sie uns jederzeit kontaktieren.</p>
-        <p>Jetstream-Service GmbH</p>
-        <p>Adresse: Skiweg 45, 8000 Zürich, Schweiz</p>
-        <p>Telefon: +41 (0)44 123 45 67</p>
-        <p>
-          E-Mail:
-          <a href="mailto:info@jetstream-service.ch"
-            >info@jetstream-service.de</a
-          >
-        </p>
-        <a href="datenschutz.html" id="datenschutz">Datenschutz</a>
-        <a href="impressum.html" id="impressum">Impressum</a>
-        <a href="agb.html" id="agb">AGB</a>
-      </section>
+      <main>
+        <section id="danke">
+            <h3>Vielen Dank für Ihre Anmeldung. Wir geben Ihnen Bescheid, falls Schwierigkeiten auftauchen.</h3>
+            <h3>Falls Sie Fragen haben, können Sie uns jederzeit per E-Mail oder Telefon kontaktieren.</h3>
+            <button id="downloadInvoice">Rechnung herunterladen</button>
+        </section>
+        <section id="contact">
+            <h2>Kontakt</h2>
+            <p>Jetstream-Service GmbH</p>
+            <p>Adresse: Skiweg 45, 8000 Zürich, Schweiz</p>
+            <p>Telefon: +41 (0)44 123 45 67</p>
+            <p>E-Mail: <a href="mailto:info@jetstream-service.ch">info@jetstream-service.ch</a></p>
+            <h3 id="priceDisplay"></h3>
+          </section>
     </main>
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   </body>
 </html>
