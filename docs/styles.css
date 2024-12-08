@@ -442,10 +442,52 @@ input[type="text"] {
   .card img {
     height: 140px; /* Für kleinere Geräte wie Smartphones */
   }
+  .notification {
+    width: 100%;
+    max-width: none;
+    border-radius: 0;
+  }
 }
 
 @media (max-width: 576px) {
   .card img {
     height: 120px; /* Für sehr kleine Bildschirme */
   }
+}
+
+.notification {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  background-color: #dc3545; /* Bootstrap Danger Color */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease, top 0.3s ease;
+}
+
+.notification.show {
+  display: block;
+  top: 20px;
+  opacity: 1;
+}
+
+.notification .close-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
 }

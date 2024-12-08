@@ -1,4 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
+  function showErrorNotification(message) {
+    const notificationElement = document.getElementById("notification");
+    const notificationMessage = document.getElementById("notificationMessage");
+
+    // Nachricht setzen
+    notificationMessage.textContent = message;
+
+    // Benachrichtigung anzeigen
+    notificationElement.classList.add("show");
+
+    // Automatisches Schließen nach 3 Sekunden
+    setTimeout(() => {
+      closeNotification();
+    }, 10000);
+  }
+
+  function closeNotification() {
+    const notificationElement = document.getElementById("notification");
+    notificationElement.classList.remove("show");
+  }
+
   function validateForm() {
     const name = document.getElementById("name").value.trim();
     const namePattern = /^[a-zA-ZäöüÄÖÜßéàèÉÀÈ]+(?:\s[a-zA-ZäöüÄÖÜßéàè]+)+$/;
@@ -8,17 +29,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const phonePattern = /^\d{10,15}$/;
 
     if (!namePattern.test(name)) {
-      alert("Bitte geben Sie einen gültigen Namen ein.");
+      showErrorNotification("Bitte geben Sie einen gültigen Namen ein.");
       return false;
     }
 
     if (!emailPattern.test(email)) {
-      alert("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+      showErrorNotification("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
       return false;
     }
 
     if (!phonePattern.test(phone)) {
-      alert("Bitte geben Sie eine gültige Telefonnummer ein.");
+      showErrorNotification("Bitte geben Sie eine gültige Telefonnummer ein.");
       return false;
     }
 
@@ -104,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch((error) => {
           console.error("Fehler:", error);
-          alert("Es gab ein Problem mit der Serviceanmeldung.");
+          showErrorNotification("Es gab ein Problem mit der Serviceanmeldung.");
         });
     }
   };
@@ -112,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Logik für das Abholdatum
   const prioritySelect = document.getElementById("priority");
 
-  prioritySelect.addEventListener("change", function () {
+  function updatePickupDate() {
     const priority = prioritySelect.value;
     const currentDate = new Date();
     let additionalDays;
@@ -143,7 +164,12 @@ document.addEventListener("DOMContentLoaded", function () {
       .padStart(2, "0")}.${pickupDate.getFullYear().toString().slice(-2)}`;
 
     document.getElementById("pickup-date").value = formattedDate;
-  });
+  }
+
+  prioritySelect.addEventListener("change", updatePickupDate);
+
+  // Initial pickup date calculation
+  updatePickupDate();
 });
 
 document.addEventListener("DOMContentLoaded", function () {
